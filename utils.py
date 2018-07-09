@@ -108,6 +108,8 @@ d2_str = r'C:\Users\bonul\Downloads\translate_json\test\locale-zh-CN.json'
 progress_file = os.path.join( os.path.dirname(d2_str) , 'progress.npy' )
 if not os.path.exists(progress_file):
     np.save( progress_file , [0,0] )
+else:
+    np.save( progress_file , [0,np.load(progress_file)[1]] )
 
 with open(d1_str, 'rb') as f:
     d1 = json.load(f)
